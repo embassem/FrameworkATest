@@ -2,13 +2,13 @@
 import Foundation
 import UIKit
 
-let version = "11.0.0"
+public let version = "11.0.0"
 
-protocol FrameworkAProtocol {
+public protocol FrameworkAProtocol {
   func execute(path:String, onSuccess: @escaping (UIImage) -> Void)
 }
 
-extension FrameworkAProtocol {
+public extension FrameworkAProtocol {
 
   func execute(onSuccess: @escaping (UIImage) -> Void) {
     execute(path: "", onSuccess: onSuccess)
@@ -16,8 +16,8 @@ extension FrameworkAProtocol {
 }
 
 
-class FrameworkAImp: FrameworkAProtocol {
-  func execute(path:String, onSuccess: @escaping (UIImage) -> Void) {
+public class FrameworkAImp: FrameworkAProtocol {
+  public func execute(path:String, onSuccess: @escaping (UIImage) -> Void) {
     let url = URL(string: "https://bit.ly/2LMtByx")!
     let task = URLSession.shared.dataTask(with: url) { data, response, error in
       if let data = data,
